@@ -1,0 +1,11 @@
+tmp_test_data/
+__pycache__/
+*.pyc
+
+# Generated annotation conversion outputs
+data/annotations_converted*/
+
+# One-off notebook editing helpers
+update_nb.py
+update_nb_word.py
+.venv/

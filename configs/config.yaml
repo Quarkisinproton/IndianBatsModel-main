@@ -1,0 +1,25 @@
+train:
+  epochs: 50
+  batch_size: 16
+  learning_rate: 0.001
+  weight_decay: 0.0001
+
+data:
+  raw_data_path: "data/raw"
+  processed_data_path: "data/processed/spectrograms"
+
+model:
+  input_size: [1, 128, 128] 
+  num_classes: 3
+  architecture: "cnn"
+
+augmentation:
+  enabled: true
+  techniques:
+    - "random_flip"
+    - "random_crop"
+    - "time_stretch"
+
+logging:
+  log_dir: "logs"
+  log_level: "info"
