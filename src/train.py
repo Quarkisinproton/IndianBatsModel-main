@@ -1,16 +1,31 @@
+"""
+train.py – Training entry-point for IndianBatsModel.
+
+Uses the canonical ``src.*`` imports.
+"""
 import os
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-from torch.utils.data import DataLoader
-from MainShitz.datasets.spectrogram_dataset import SpectrogramDataset
-from MainShitz.datasets.spectrogram_with_features_dataset import SpectrogramWithFeaturesDataset
-from MainShitz.models.cnn import CNN
-from MainShitz.models.cnn_with_features import CNNWithFeatures
-from MainShitz.utils import save_model
 import yaml
-import numpy as np
-import json
+from torch.utils.data import DataLoader
+
+# Auto-setup imports to work from any location
+if "src" not in sys.modules:
+    repo_root = Path(__file__).parent.parent
+    if str(repo_root) not in sys.path:
+        sys.path.insert(0, str(repo_root))
+
+from src.datasets.spectrogram_dataset import SpectrogramDataset
+from src.datasets.spectrogram_with_features_dataset import SpectrogramWithFeaturesDataset
+from src.models.cnn import CNN
+from src.models.cnn_with_features import CNNWithFeatures
+from src.utils import save_model
 
 def train_model(config):
     # Resolve config values with fallbacks

@@ -1,4 +1,5 @@
 torch
+torchvision
 torchaudio
 numpy
 matplotlib
@@ -8,3 +9,7 @@ librosa
 opencv-python
 jupyter
 seaborn
+scipy
+tqdm
+Pillow
+pyyaml

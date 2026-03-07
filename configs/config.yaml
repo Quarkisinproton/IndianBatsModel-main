@@ -3,15 +3,22 @@ train:
   batch_size: 16
   learning_rate: 0.001
   weight_decay: 0.0001
+  scheduler: cosine
+  early_stop_patience: 8
+  model_save_path: "models/bat_fused_best.pth"
 
 data:
   raw_data_path: "data/raw"
   processed_data_path: "data/processed/spectrograms"
+  train_spectrograms: "data/processed/spectrograms"
+  test_spectrograms: "data/processed/spectrograms"
+  features_csv: "data/processed/features/end_frequencies.csv"
+  num_classes: 3
 
 model:
-  input_size: [1, 128, 128] 
+  input_size: [1, 128, 128]
   num_classes: 3
-  architecture: "cnn"
+  architecture: "resnet"
 
 augmentation:
   enabled: true
